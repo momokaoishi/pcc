@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <title>パッケージ</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <img src="images/pcc2.png" alt="pcc">
+    <h1>あなたのベストパッケージはどれ？</h1>
+    <div id="flowchart-area">
+        <p id="comment">質問に答えてあなたの旅行プランにぴったりなパッケージを見つけよう！</p>
+        <button id="start-button" type="button">診断スタート</button>
+    
+        <div id="box">
+            <div id="question-area"> 
+                <div id="pkg-question"></div>
+    
+                <div class="answer-buttons">
+                    <button id="yes-button" type="button">YES</button>
+                    <button id="no-button" type="button">NO</button>
+                </div>
+    
+            </div>
+     
+            <div id="result-area">
+                <p id="result-text">あなたのベストパッケージは</p>
+                <p id="result-pkg"></p>
+                <button id="pkg-info" type="button">パッケージの詳細</button>
+            </div>
+        </div>
+        
+    </div>
+    
+
+    <script src="flowchart.js"></script>
+</body>
+
+</html>
