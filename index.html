@@ -16,24 +16,29 @@
         <p id="comment">質問に答えてあなたの旅行プランにぴったりなパッケージを見つけよう！</p>
         <button id="start-button" type="button">診断スタート</button>
     
-        <div id="box">
-            <div id="question-area"> 
-                <div id="pkg-question"></div>
-    
-                <div class="answer-buttons">
-                    <button id="yes-button" type="button">YES</button>
-                    <button id="no-button" type="button">NO</button>
-                </div>
-    
+        <div id="question-area"> 
+            <div id="pkg-question"></div>
+
+            <div class="answer-buttons">
+                <button id="yes-button" type="button">YES</button>
+                <button id="no-button" type="button">NO</button>  
             </div>
-     
-            <div id="result-area">
+
+            <button id="back-button" class ="go-back-buttons" type="button">戻る</button>
+        </div>
+    
+        <div id="result-area">
+            <div class="result-box">
                 <p id="result-text">あなたのベストパッケージは</p>
                 <p id="result-pkg"></p>
-                <button id="pkg-info" type="button">パッケージの詳細</button>
+                <div class = "result-buttons">
+                    <button id="info-button" type="button" >パッケージの詳細</button>
+                    <button id="reset-button" class ="go-back-buttons" type="button">はじめに戻る</p>
+                </div>
+                
             </div>
+
         </div>
-        
     </div>
     
 

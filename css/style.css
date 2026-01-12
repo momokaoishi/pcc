@@ -33,6 +33,7 @@ h1 {
     font-size: 24px;
     font-weight: 700;
     line-height: 28px;
+    padding: 0 16px;
 }
 
 #start-button {
@@ -44,6 +45,7 @@ h1 {
     border: 1px solid #F36F3A;
     height: 80px;
     width: 150px;
+    margin: 0 auto;
 }
 
 
@@ -54,24 +56,20 @@ h1 {
 
 #flowchart-area {
     background-color: #fff;
-    height: 250px;
+    height: 280px;
     padding-top: 20px;
     
-}
-
-#box {
-    display: none;
-    margin: 0 auto;
-    width: 90%;
-    height: 220px;
-    border: 1px solid silver;
-    border-radius: 8px;
-    box-shadow: 0 0 5px #cacaca;
 }
 
 #question-area {
     margin: 0 auto;
     display: none;
+    margin: 0 auto;
+    width: 90%;
+    height: 235px;
+    border: 1px solid silver;
+    border-radius: 8px;
+    box-shadow: 0 0 5px #cacaca;
 }
 
 #pkg-question {
@@ -127,6 +125,106 @@ h1 {
     padding: 0 8px 0 8px;
 }
 
+.result-box {
+    margin: 0 auto;
+    padding-top: 20px;
+    width: 90%;
+    height: 290px;
+    border: 1px solid silver;
+    border-radius: 8px;
+    box-shadow: 0 0 5px #cacaca;
+}
+
 #result-area {
     display: none;
+    background-color: #fff;
+    height: 350px;
 }
+
+#info-button {
+    color: #F36F3A;
+    background-color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    transition: all 300ms ease;
+    border: 1px solid #F36F3A;
+    width: 90%;
+    height: 45px;
+}
+
+#info-button:hover {
+    color: #fff;
+    background-color: #F36F3A; 
+}
+
+.go-back-buttons {
+    font-size: 15px;
+    color: #215968; 
+    text-align: center;
+    padding-top: 18px;
+    border: none;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+.go-back-buttons:hover {
+    color: #13343d;
+}
+
+.result-buttons {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+@media screen and (min-width: 768px) {  
+    img {
+        height: 400px;
+        object-fit: cover;
+    }
+
+    #comment {
+        margin-bottom: 30px;
+    }
+
+    #info-button {
+        width: 80%;
+    }
+    
+}
+
+@media screen and (min-width: 1024px) {
+    img {
+        height: 490px;
+    }
+
+    #comment {
+        margin-bottom: 40px;
+    }
+
+    .answer-buttons {
+        display: flex;
+        flex-direction: row; 
+        align-items: center;
+        gap: 20px;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    #yes-button {
+        margin-top: 45px;
+        width: 30%;
+    }
+
+    #no-button {
+        margin-top: 45px;
+        width: 30%; 
+    }
+
+    #info-button {
+        width: 55%;
+    }
+    
+   
+}
+  

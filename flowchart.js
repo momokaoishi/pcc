@@ -42,7 +42,6 @@ const flow = {
     q9: {
         question: '夕方には帰る予定',
         yes: 'iop',
-        //noの時どうする？
         no: 'q1'
     },
     ih: 'アイランド・オブ・ポリネシア&ナイトショー',
@@ -73,51 +72,90 @@ const $questionArea = document.getElementById('question-area');
 const $questionText = document.getElementById('pkg-question');
 const $yesButton = document.getElementById('yes-button');
 const $noButton = document.getElementById('no-button');
+const $backButton = document.getElementById('back-button');
 const $resultArea = document.getElementById('result-area');
 const $result = document.getElementById('result-pkg');
 const $comment = document.getElementById('comment');
-const $box = document.getElementById('box');
-const $infoButton = document.getElementById('pkg-info');
+const $infoButton = document.getElementById('info-button');
+const $resetButton = document.getElementById('reset-button');
 let current = null;
+let history = [];
 
+//最初の質問の時は戻るボタンを非表示にする
+const displayBackButton = () => {
+    if (history.length === 0) {
+        $backButton.style.display = 'none';
+    } else {
+        $backButton.style.display = 'block';
+    }
+};
+
+//Questions and answer buttons show up, and the start button and text will not be displayed after clicking the start button
 document.getElementById('start-button').addEventListener('click', () => {
     current = 'q1';
+    history = []; 
     $questionArea.style.display = 'block';
-    $box.style.display = 'block';
     $questionText.textContent = flow[current].question
     $startButton.style.display = 'none';
     $comment.style.display = 'none';
+    displayBackButton();
 });
 
+//Store the current question to history to go back. Show the next question. If the next element is string, show the result. 
 let resultPkg = null; //どのパッケージか覚えるURLに使う
 const goNext = (answer) => {
     const nextQuestion = flow[current][answer];
     const finalResult = flow[nextQuestion];
     
-    if(typeof finalResult === 'string') {
+    if (typeof finalResult === 'string') {
         $questionArea.style.display = 'none';
         $resultArea.style.display = 'block';
         $result.textContent = finalResult;
-        resultPkg = finalResult;
+        resultPkg = nextQuestion;
     }
 
+    history.push(current);
     current = nextQuestion;
     $questionText.textContent = flow[current].question;
+    displayBackButton();
 };
 
-//yesの時どうなるか
+//When a user clicks yes
 $yesButton.addEventListener('click', () => {
     goNext('yes');
 });
 
-//noの時
+//When a user clicks no
 $noButton.addEventListener('click', () => {
     goNext('no');
 });
 
+//If a user wants to go back to the previus question, show the last question in history
+$backButton.addEventListener('click', () => {
+    current = history.pop();
+    $questionText.textContent = flow[current].question;
+    displayBackButton();
+});
+
+//Go to the page for each package on the official website
 $infoButton.addEventListener('click', () => {
     const url = packageLinks[resultPkg];
     location.href = url;
 });
+
+//If a user wants to do it again, the start button and the text will show up. The result won't be displayed.
+$resetButton.addEventListener('click', () => {
+    current = null;
+    resultPkg = null;
+
+    $resultArea.style.display = 'none';
+    $questionArea.style.display = 'none';
+
+    $startButton.style.display = 'block';
+    $comment.style.display = 'block';
+
+    displayBackButton();
+});
+
 
 
